@@ -66,8 +66,7 @@ int main(){
 
 //    bubble_sort(Array, length);
 //    choise_sort(Array, length);
-
-    count_sort(Array, length);
+//    count_sort(Array, length);
 
 
     for(int i = 0; i < length; i++){

@@ -1,38 +1,53 @@
 #include <iostream>
+#include <string.h>
 
+//5//-------------------------------------------------
+    union diferent_types_number{
+        int   integer;
+        float float_point;
+        char  symbol;
+    };
+    struct num_type_identifyer{
+        bool  i:1;
+        bool  f:1;
+        bool ch:1;
+    };
 
-
-
-
-
-    
-struct game_struct{
-    char name[15];
+//2//-------------------------------------------------
+enum Square_statement{ 
+    Empty,
+    Cross, 
+    Zerro,
 };
 
-
-
-
 int main(){
-//1.
+//1//-------------------------------------------------
+    bool boolea = true;
     int integer = 10;
     double float_number = 15.5;
     char letter = 's';
-    //std::cout << letter << "\t" << float_number << "\t" << integer << std::endl; 
-    
+    std::string str = "Hello World";
+//----------------------------------------------------
 
-    //Инициализируем перепенные которые будут записываться в массив
-    //И сам массив(для игры необходимо всего 9 значений)
-    char cross = 'x', zerro = 'o';
-    char game_arr[9];
-    game_arr[0] = cross;
-    game_arr[1] = zerro;
-    game_arr_length = 2;
+//3//-------------------------------------------------
+    Square_statement Field[3][3];
+//----------------------------------------------------
 
-    for (int i = 0; i < game_arr_length; i++){
-        std::cout << game_arr[i] << " ";
-    }
-    
+//4//-------------------------------------------------
+    struct Game_field{
+        std::string Player1_Name;
+        std::string Player2_Name;
+        int  Cycle: 9;
+        bool turn;
+    }; 
+//----------------------------------------------------
+
+    diferent_types_number number;
+    num_type_identifyer identify;
+// call what type is 
+
+
+
 
 
 return 0;
