@@ -31,14 +31,11 @@ bool nums_is_10_or_sum_is_10(){
 
 //4.----------------------------------------------------
 bool year_is_leap(int year){
-    if (year % 4 == 0){
-        if(year % 100 == 0){
-            if((year/100)% 4 == 0){
-                return true;
-            }else{ 
-                return false;
-            }
-        }return true;
+    while(year % 100 == 0){
+        year /= 100;
+    }
+    if(year % 4 == 0){
+        return true;
     }
     return false;
 }
