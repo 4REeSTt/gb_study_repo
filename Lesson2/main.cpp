@@ -1,17 +1,22 @@
 #include <iostream>
 #include <string.h>
+#include <typeinfo>
 
 //5//-------------------------------------------------
-    union diferent_types_number{
-        int   integer;
-        float float_point;
-        char  symbol;
-    };
-    struct num_type_identifyer{
-        bool  i:1;
-        bool  f:1;
-        bool ch:1;
-    };
+union diferent_types{
+    int   integer;
+    float float_point;
+    char  symbol;
+};
+
+struct type_ident{
+    diferent_types value;
+    int is_int  :1;
+    int is_char :1;
+    int is_float:1;
+
+};
+
 
 //2//-------------------------------------------------
 enum Square_statement{ 
@@ -21,16 +26,15 @@ enum Square_statement{
 };
 
 
-int find_type_num(number){
-    if(number.integer > 0){
-        identify.i  = 1;
-        identify.f  = 0;
-        identify.ch = 0;
-    }else if(number.float_point > 0)   
-    
-
-    return 0;
-}
+//4//-------------------------------------------------
+    struct Game_field{
+        Square_statement square[3][3];
+   std::string Player1_name;
+   std::string Player2_name;
+        int Cycle  :10;
+        int turn :2;
+    }; 
+//----------------------------------------------------
 
 
 int main(){
@@ -43,27 +47,20 @@ int main(){
 
 //3//-------------------------------------------------
     Square_statement Field[3][3];
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3;j++){
+            Field[i][j] = Empty;
+            std::cout << Field[i][j] << " ";
+        }
+    }
+//5.--------------------------------------------------
+    type_ident inte;
+    inte.value.integer = 15;
+    inte.is_int = 1;
+    inte.is_char = 0;
+    inte.is_float = 0;
 
-//4//-------------------------------------------------
-    struct Game_field{
-        std::string Player1_Name;
-        std::string Player2_Name;
-        int  Cycle: 9;
-        bool turn;
-    }; 
-//----------------------------------------------------
+    std::cout << "\n" << inte.value.integer;
 
-    diferent_types_number number;
-    num_type_identifyer identify;
-    
-    number.integer = 15;
-// call what type is number?
-
-    
-    
-
-
-
-
-return 0;
+    return 0;
 }
