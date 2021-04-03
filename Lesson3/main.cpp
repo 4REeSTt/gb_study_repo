@@ -7,8 +7,7 @@ float calculate(int a,int b,int c,int d){
 }
 
 int main(){
-//2
-    int task2_number = 30;
+
 //1.//Закоментировано для задания 3, эти же переменные с другими значениями идут из файла
     //int a,b,c,d;
     //a = 5; b = 14;
@@ -16,6 +15,8 @@ int main(){
 
     std::cout << "Task1/3: \n" << calculate(a,b,c,d) << "\n\n";
 
+//2.
+    int task2_number = 30;
     std::cout << "Task2:   \n" << ((task2_number > 21)? 2*(task2_number - 21):task2_number - 21) << "\n\n";
 
 //4.
