@@ -11,7 +11,6 @@ int main(){
     std::cout << (check_diaposon(5,10)) << std::endl;
 
     int Array[10] = {0};
-    int * index = Array;
-    std::cout << sizeof(*index);
+    std::cout << ARR_SIZE(Array,int);
     return 0;
 }
