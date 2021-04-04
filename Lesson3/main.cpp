@@ -1,6 +1,5 @@
 #include <iostream>
-#include "./variables.h"
-
+extern const int a,b,c,d;
 float calculate(int a,int b,int c,int d){
     return (a*(b + ((float)c/d)));
 
