@@ -14,7 +14,8 @@ int main(){
     }
     std::string prebuff;
     while(fin >> prebuff){
-      buff += prebuff;
+        buff += prebuff;
+        buff += " ";
     }
 
     fin.close();
@@ -28,6 +29,7 @@ int main(){
     }
     while(fin2 >> prebuff){
           buff += prebuff;
+          buff += " ";
                             
     }
     fin2.close();
