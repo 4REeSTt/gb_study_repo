@@ -43,9 +43,13 @@ int TPK(){
 }
 
 int main(){
-    int arr[10] = {5,3,1,3,5,6,8,5,3,12};
-    bubble_sort(arr,10);
-    for(int i = 0;i < 10;i++){
+    int length = 20;
+    int arr[length]; 
+    for (int i = 0;i < length; i++){
+        arr[i] = rand()%100000;
+    }
+    bubble_sort(arr,length);
+    for(int i = 0;i < length;i++){
         printf("%d ",arr[i]);
     }
 
