@@ -17,7 +17,7 @@ int bucket_sort_evenNums(int * array,int length){
                 if(bucket[j] > 0){
                     bucket[j]--;
                     array[i] = j;
-                printf("array[%d] = %d \n",i,j);
+                    printf("array[%d] = %d \n",i,j);
                     break;
                 }
             }
