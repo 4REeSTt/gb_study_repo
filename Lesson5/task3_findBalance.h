@@ -26,3 +26,42 @@ namespace Task5{
         return false;
     }
 }
+
+
+#define CALCULATE_RIGHT_AND_LEFT    \
+     for(int i = 0; i < center_pointer; i++){\
+        left_side_sum += Array[i];\
+    }for(int i = center_pointer; i < length; i++){\
+        right_side_sum += Array[i];\
+    }
+
+
+bool CheckBalance_update(int * Array, int length){
+    int left_side_sum = 0,
+        right_side_sum= 0,
+        center_pointer= length/2;
+    int direction = 0;
+    
+//calculating both sides summs for comparing 
+      CALCULATE_RIGHT_AND_LEFT
+
+    if(left_side_sum == right_side_sum) 
+        return true;
+    if(left_side_sum > right_side_sum)
+        direction = -1;
+    else 
+        direction = 1;
+
+    while(left_side_sum != right_side_sum and (center_pointer > 0 and center_pointer < length)){
+        left_side_sum = 0;
+        right_side_sum = 0;
+        center_pointer += direction;
+
+        CALCULATE_RIGHT_AND_LEFT
+
+    }
+    if(left_side_sum == right_side_sum) 
+        return true;
+    else
+        return false;
+}

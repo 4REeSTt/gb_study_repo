@@ -39,7 +39,9 @@ int main(){
     int Array_for_balance[] = {10,1,2,3,4};
     int length_balance = sizeof(Array_for_balance)/sizeof(Array_for_balance[0]);
     
-    std::cout << "\n\nBalence is working {10,1,2,3,4} :" << Task5::checkBalance(Array_for_balance, length_balance) << "\n";
+    std::cout << "\n\nBalence is working {10,1,2,3,4} :" << Task5::checkBalance(Array_for_balance, length_balance);
+
+    std::cout << "\n\nNew balance function {10,1,2,3,4} :" << CheckBalance_update(Array_for_balance, length_balance) << "\n\n";
 //----------------------------------------------------------
 
     const int length_float_array = 100;
@@ -48,14 +50,14 @@ int main(){
         FloatArray[i] = i;
     }
     int n;
-    std::cout << "Enter n to slide array";
+    std::cout << "Enter n to slide array\n> ";
     std::cin >> n;
     Task5::Array_sideslide(FloatArray, length_float_array, n);
 
     
 
 //5.
-    std::cout << "\n\n";
+    std::cout << "\n\nNew XOR reqursive function. Accepts any number of arguments\n";
     rqur_new(1,0,0,1,1);
 
     return 0;

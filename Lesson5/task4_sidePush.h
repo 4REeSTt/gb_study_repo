@@ -35,7 +35,7 @@ namespace Task5{
         }
 
         for(int i = 0; i < length; i++){
-            std::cout << " " << Array[i] << " ";
+            std::cout << Array[i] << " ";
         }
         return 0;
     }
