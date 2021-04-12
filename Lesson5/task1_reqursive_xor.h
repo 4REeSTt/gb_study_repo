@@ -9,9 +9,6 @@ namespace Task5{
     }
 }
 
-#include <iostream>
-
-
 void rqur_new(){
 
 }
