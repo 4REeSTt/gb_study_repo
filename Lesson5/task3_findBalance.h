@@ -27,7 +27,7 @@ namespace Task5{
     }
 }
 
-
+//calculating both sides summs 
 #define CALCULATE_RIGHT_AND_LEFT    \
      for(int i = 0; i < center_pointer; i++){\
         left_side_sum += Array[i];\
@@ -39,10 +39,9 @@ namespace Task5{
 bool CheckBalance_update(int * Array, int length){
     int left_side_sum = 0,
         right_side_sum= 0,
-        center_pointer= length/2;
-    int direction = 0;
+        center_pointer= length/2,
+        direction = 0;
     
-//calculating both sides summs for comparing 
       CALCULATE_RIGHT_AND_LEFT
 
     if(left_side_sum == right_side_sum) 
