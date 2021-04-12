@@ -14,7 +14,7 @@ int main(){
     //for(int i = 0; i < 20; i++){
     //    Array[i] ^= 1;
     //}
-//two types if XORing the array. 
+//two types of XORing the array. 
     std::cout << "\nBefore XORing: ";
     for(int i = 0; i < length_task1_5; i ++){
         std::cout << Array[i] ;
@@ -54,18 +54,9 @@ int main(){
 
     
 
+//5.
+    std::cout << "\n\n";
+    rqur_new(1,0,0,1,1);
 
-
-
-
-
-
-
-
-
-
-
-
-    
     return 0;
 }
