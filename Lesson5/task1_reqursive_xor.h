@@ -9,10 +9,10 @@ namespace Task5{
     }
 }
 
-void rqur_new(){
+void rqur_new(){}
 
-}
 template<typename counter,typename... LIST>
+
 void rqur_new(counter first_item,LIST... args){
     std::cout << (first_item ^= 1) << " ";
     rqur_new(args...);
