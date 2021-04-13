@@ -4,6 +4,7 @@
 #include "./task3_findBalance.h"
 #include "./task4_sidePush.h"
 
+//ВАРИАНТ БЕЗ ИСПОЛЬЗОВАНИЯ .h ФАЙЛОВ НА ВЕТКЕ Linkerbranch
 
 int main(){
 
