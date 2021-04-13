@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/MAIN.dir/main.cpp.o CMakeFiles/MAIN.dir/task2_feeling_array.cpp.o CMakeFiles/MAIN.dir/task3_findBalance.cpp.o CMakeFiles/MAIN.dir/task4_sidePush.cpp.o -o MAIN 
