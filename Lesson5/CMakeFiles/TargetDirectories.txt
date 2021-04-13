@@ -1,0 +1,3 @@
+/home/linus/gb/gb_study_repo/Lesson5/CMakeFiles/rebuild_cache.dir
+/home/linus/gb/gb_study_repo/Lesson5/CMakeFiles/edit_cache.dir
+/home/linus/gb/gb_study_repo/Lesson5/CMakeFiles/MAIN.dir

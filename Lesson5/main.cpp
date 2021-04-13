@@ -1,8 +1,18 @@
+#pragma once
 #include <iostream>
-#include "./task1_reqursive_xor.h"
-#include "./task2_feeling_array.h"
-#include "./task3_findBalance.h"
-#include "./task4_sidePush.h"
+#include "task1_reqursive_xor.cpp"
+
+
+//Обьявление функций
+namespace Task5{
+    int tofeel_array(int * Array_task2, int length_of_arr);
+    bool checkBalance(int * Array, int length);
+    int Array_sideslide(int * Array, int length,int n);
+
+}
+
+bool CheckBalance_update(int * Array, int length);
+
 
 
 int main(){
@@ -58,7 +68,7 @@ int main(){
 
 //5.
     std::cout << "\n\nNew XOR reqursive function. Accepts any number of arguments\n";
-    rqur_new(1,0,0,1,1);
+    rqur_new(1,1,1,1,0,0,0,0,0);
 
     return 0;
 }

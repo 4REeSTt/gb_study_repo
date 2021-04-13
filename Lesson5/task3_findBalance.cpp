@@ -1,3 +1,4 @@
+#include <iostream>
 namespace Task5{
 
     //3.---

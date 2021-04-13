@@ -1,3 +1,4 @@
+#include <iostream>
 namespace Task5{
     //1.---//5.
     int rqur(int * Array, int length){
@@ -15,6 +16,7 @@ template<typename counter,typename... LIST>
 
 void rqur_new(counter first_item,LIST... args){
     std::cout << (first_item ^= 1) << " ";
+    
     rqur_new(args...);
 }
 
