@@ -2,37 +2,44 @@
 #include <fstream>
 
  
-std::string buff;
+char* buff;
 
 int main(){
    
-//Считываем текст из первого файла, записываем в buff
+//Открываем файлы и в зависимости от их размера выделяем память
     std::ifstream fin; 
     fin.open("textholder1.txt");
     if(!fin.is_open()){
         std::cerr << "Cant open the file" << std::endl;
     }
-    std::string prebuff;
-    while(fin >> prebuff){
-        buff += prebuff;
-        buff += " ";
-    }
+    char* prebuff;
+    fin.seekg(0, std::ios_base::end);
+    size_t file1_size = fin.tellg();
 
+
+//    std::ifstream fin2; 
+//    fin2.open("textholder2.txt");
+//    if(!fin2.is_open()){
+//        std::cerr << "Cant open the file" << std::endl;
+//                        
+//    }
+//    fin2.seekg(0, std::ios_base::end);
+//    size_t file2_size = fin2.tellg();
+//
+//    buff = new char[file2_size + file1_size];
+//    prebuff = new char[file1_size];
+
+//Копирование данных из файла в буффер 
+    fin.read(prebuff,file1_size);
+    for(int i = 0; i < file1_size; i++){
+        std::cout << prebuff[i];
+    }
+    
+
+
+    //fin2.close();
     fin.close();
-
-//Считываем тескст их 2ого файла, записываем так же в buff(обьединяя)
-    std::ifstream fin2; 
-    fin2.open("textholder2.txt");
-    if(!fin2.is_open()){
-        std::cerr << "Cant open the file" << std::endl;
-                        
-    }
-    while(fin2 >> prebuff){
-          buff += prebuff;
-          buff += " ";
-                            
-    }
-    fin2.close();
+    delete[] prebuff;
 
 
 //Записываем все в новый файл, в 1 строку.
@@ -40,5 +47,6 @@ int main(){
     fout.open("glued.txt");
     fout << buff;
     fout.close();
+    delete[] buff;
     return 0;
 }
