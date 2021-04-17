@@ -32,7 +32,7 @@ namespace Task5{
         right_side_sum += Array[i];\
     }
 
-
+//Немного улучшеный вариант с движением от середины
 bool CheckBalance_update(int * Array, int length){
     int left_side_sum = 0,
         right_side_sum= 0,
