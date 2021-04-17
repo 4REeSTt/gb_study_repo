@@ -13,7 +13,10 @@ namespace Task5{
 
 bool CheckBalance_update(int * Array, int length);
 
-
+bool (*CheckBalance_update_pointer)(int * Array, int length) = CheckBalance_update;
+int (*Array_sideslide_pointer)(int * Array, int length,int n) = Task5::Array_sideslide;
+bool (*checkBalance_pointer)(int * Array, int length) = Task5::checkBalance;
+int (*tofeel_array_pointer)(int * Array_task2, int length_of_arr) = Task5::tofeel_array;
 
 int main(){
 
@@ -41,7 +44,7 @@ int main(){
 //2.-------------------------------------------------------- 
     int Array_task2[8] = {0};
     int length_of_arr = sizeof(Array_task2)/sizeof(Array_task2[0]);
-    Task5::tofeel_array(Array_task2, length_of_arr); 
+    tofeel_array_pointer(Array_task2, length_of_arr); 
 //----------------------------------------------------------
 
 
@@ -49,9 +52,9 @@ int main(){
     int Array_for_balance[] = {10,1,2,3,4};
     int length_balance = sizeof(Array_for_balance)/sizeof(Array_for_balance[0]);
     
-    std::cout << "\n\nBalence is working {10,1,2,3,4} :" << Task5::checkBalance(Array_for_balance, length_balance);
+    std::cout << "\n\nBalence is working {10,1,2,3,4} :" << checkBalance_pointer(Array_for_balance, length_balance);
 
-    std::cout << "\n\nNew balance function {10,1,2,3,4} :" << CheckBalance_update(Array_for_balance, length_balance) << "\n\n";
+    std::cout << "\n\nNew balance function {10,1,2,3,4} :" << CheckBalance_update_pointer(Array_for_balance, length_balance) << "\n\n";
 //----------------------------------------------------------
 
     const int length_float_array = 100;
@@ -62,7 +65,7 @@ int main(){
     int n;
     std::cout << "Enter n to slide array\n> ";
     std::cin >> n;
-    Task5::Array_sideslide(FloatArray, length_float_array, n);
+    Array_sideslide_pointer(FloatArray, length_float_array, n);
 
     
 
