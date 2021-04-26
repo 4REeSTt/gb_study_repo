@@ -1,2 +1,2 @@
-#GB_Study_Repository
+# GB_Study_Repository
 Сдесь будут размещаться все курсы(без итоговых работ) по папкам
