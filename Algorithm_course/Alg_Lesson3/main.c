@@ -37,8 +37,47 @@ int powering_num_advanced(int num,int power){
 }
 
 //3.
+int ChessBoard[8][8] = {0};
+int RoadCounter[64] = {0};
 
+struct Piece{
+        struct Piece(int pos_x, int pos_y){
+            x = pos_x; y = pos_y; 
+        }
+        void moveUP(bool side){
+            if(!side)
+                y--;
+            else
+                y++;
+        }
+        void moveRight(bool side){
+            if(!side)
+                x++;
+            else
+                x--;
+        }
+        void moveUpRight(bool side){
+            if(!side){
+                x++;y--;
+            }else{
+                x--;y++;
+            }
+        }
+        void moveUpLeft(bool side){
+            if(!side){
+                y--;x--;
+            }else{
+                y++;x++;
+            }
+        }
 
+    private:
+        int x,y;
+};
+
+int KingsRoads(int* board, int* roads){
+   return 0; 
+}
 
 int main(){
 
@@ -55,7 +94,7 @@ int main(){
 
     
     //3.
-    
+    struct Piece King(0, 0); 
 
 
 
