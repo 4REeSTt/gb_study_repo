@@ -26,7 +26,7 @@ int main(){
     Arr_dinamic[2][2] = 33;
     std::cout << ARRAY_ELEMENT(Arr_dinamic, 2,2) << '\n';
 
-    delete[] Arr_dinamic[0];
+	delete[] Arr_dinamic[0];
 	delete[] Arr_dinamic;
 
     //3.
