@@ -5,3 +5,12 @@
     cd ../
   
 ![](./Screenshot_1.png)
+
+## Задание 2
+
+![](./Screenshot_2.png)
+![](./Screenshot_3.png)
+![](./Screenshot_4.png)
+![](./Screenshot_5.png)
+![](./Screenshot_6.png)
+![](./Screenshot_7.png)
