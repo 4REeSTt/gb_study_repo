@@ -17,3 +17,7 @@
 
 ##### Запись в файл через поток ввода
 ![](./Screenshot_6.png)
+
+## Задание 4
+![](./Screenshot_7.png)
+![](./Screenshot_8.png)
