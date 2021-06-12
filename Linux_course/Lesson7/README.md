@@ -9,3 +9,7 @@
 
 	$ snap install hello-world
 	$ snap remove hello-world
+	
+	
+## Task 3,4
+##### is in config file
