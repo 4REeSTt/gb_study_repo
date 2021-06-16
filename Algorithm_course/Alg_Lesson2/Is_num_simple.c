@@ -8,8 +8,8 @@ int is_num_simple(int num){
             return 0;
         }
     }
-            printf("Number is simple\n");
-            return 0;
+    printf("Number is simple\n");
+    return 0;
 }
 
 int main(){
