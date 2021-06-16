@@ -34,6 +34,8 @@
         echo "\ndaemon off;" >> ${nginx_conf}
 
     VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+    
+    COPY start.sh /start.sh
+    CMD ["./start.sh"]
     EXPOSE 80
-    CMD /usr/sbin/nginx -g "daemon off;"
 
