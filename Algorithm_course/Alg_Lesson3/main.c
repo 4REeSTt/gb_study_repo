@@ -37,46 +37,36 @@ int powering_num_advanced(int num,int power){
 }
 
 //3.
-int ChessBoard[8][8] = {0};
+const int size = 8;
+int ChessBoard[64] = {0};
 int RoadCounter[64] = {0};
 
-struct Piece{
-        struct Piece(int pos_x, int pos_y){
-            x = pos_x; y = pos_y; 
-        }
-        void moveUP(bool side){
-            if(!side)
-                y--;
-            else
-                y++;
-        }
-        void moveRight(bool side){
-            if(!side)
-                x++;
-            else
-                x--;
-        }
-        void moveUpRight(bool side){
-            if(!side){
-                x++;y--;
+void KingRoads(int* board, int* counter, int size){
+    for(int i=0; i<size; i++){
+        for (int j=0; j<size; j++){
+            if(board[j + i*size]){
+                break;
+            }
+            if(!i){
+                if(!j){
+                    counter[j] = 1;
+
+                    continue;
+                }else{
+                    counter[j] = counter[j -1];
+                    continue;
+                }
             }else{
-                x--;y++;
+                if(!j){
+                    counter[j + i*size] = counter[j + (i-1)*size];
+                    continue;
+                }else{
+                    counter[j + i*size] = counter[j + (i-1)*size] + counter[j + i*size -1];
+                    continue;
+                }
             }
         }
-        void moveUpLeft(bool side){
-            if(!side){
-                y--;x--;
-            }else{
-                y++;x++;
-            }
-        }
-
-    private:
-        int x,y;
-};
-
-int KingsRoads(int* board, int* roads){
-   return 0; 
+    }
 }
 
 int main(){
@@ -94,8 +84,21 @@ int main(){
 
     
     //3.
-    struct Piece King(0, 0); 
+    ChessBoard[1] = 1;
+    ChessBoard[6] = 1;
+    ChessBoard[10] = 1;
+    ChessBoard[37] = 1;
 
+    KingRoads(ChessBoard, RoadCounter, size);
+    printf("\nNomber of possible ways is:%d\n\n", RoadCounter[size*size-1]);
+    for(int i=0; i<size; i++){
+        for (int j=0; j<size; j++){
+            printf("%d\t", RoadCounter[j + i*size]);
+        }
+        printf("\n");
+    }
+
+    
 
 
 
