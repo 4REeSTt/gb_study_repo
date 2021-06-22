@@ -45,7 +45,8 @@ void KingRoads(int* board, int* counter, int size){
     for(int i=0; i<size; i++){
         for (int j=0; j<size; j++){
             if(board[j + i*size]){
-                break;
+                counter[j + i*size] = 0;
+                continue;
             }
             if(!i){
                 if(!j){
