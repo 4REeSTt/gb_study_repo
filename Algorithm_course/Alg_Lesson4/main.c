@@ -22,7 +22,7 @@ int TPK(){
     int tmp;
 
 
-    float P[length] = {0}; 
+    float P[11] = {0}; 
     for(int i = 0; i < length;i++){
         printf("\nEnter number  [%d]\n>>>  ", i + 1);
         scanf("%f",&P[i]);
@@ -36,8 +36,10 @@ int TPK(){
     }
     
     for(int i = 0;i < length;i++){
-        if(sqrt(fabs(P[i])) + 5 *pow(P[i], 3) > 400)
-            printf("Your number %f more then 400\n", P[i]); 
+        float y = (sqrt(fabs(P[i])) + 5.0 *pow(P[i], 3.0));
+        if(y < 400){
+            printf("Your number %f less then 400. Changed is %f\n", P[i], y); 
+        }
     } 
     return 0;
 }
@@ -45,10 +47,20 @@ int TPK(){
 int main(){
     int length = 20;
     int arr[length]; 
+
+//Creating random array
     for (int i = 0;i < length; i++){
         arr[i] = rand()%100000;
     }
+    printf("Not sorted array\n");
+    for(int i = 0;i < length;i++){
+        printf("%d ",arr[i]);
+    }
+
     bubble_sort(arr,length);
+    printf("\n");
+
+    printf("Sorted one\n");
     for(int i = 0;i < length;i++){
         printf("%d ",arr[i]);
     }
