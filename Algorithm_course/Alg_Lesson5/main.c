@@ -128,6 +128,7 @@ int quicksort(int * array, int length){
 
 int main(){
 
+//1.--------------------------------------------
     int length = 12;
     int Array[length];
     for(int i = 0; i < length; i++){
@@ -144,17 +145,22 @@ int main(){
     }
     printf("\nsorted\n\n");
 
+    
+//2.--------------------------------------------
     int Arr[12] = {0,2,8,3,4,6,5,9,8,2,7,3};
     bucket_sort_evenNums(Arr,length);
     for(int i = 0; i < length; i++){
         printf("%d ",Arr[i]);
     }
-
+    
+//Using true_bucket sort
     printf("\nTrue bucket sort:");
     int Arr3[12] = {0,2,8,3,4,6,5,9,8,2,7,3};
     int Arr2[12] = {15,29,303,1000,2,0,18,3,90,2,22,0};
+    
     true_bucket_sort(Arr2,length);
     true_bucket_sort(Arr3,length);
+    
     printf("\n");
     for(int i = 0; i < length; i++){
         printf("%d ",Arr3[i]);
