@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 //Алгоритм сортирует только числа в диапозоне 0 - 99
 int bucket_sort_evenNums(int * array,int length){
@@ -12,7 +13,6 @@ int bucket_sort_evenNums(int * array,int length){
     } 
     for(int i = 0; i < length; i++){
         if(array[i] == -1){
-
             for(int j = 0; j < 100; j++){
                 if(bucket[j] > 0){
                     bucket[j]--;
@@ -26,13 +26,8 @@ int bucket_sort_evenNums(int * array,int length){
     return 0;
 }
 
-
-
-
-
-
 int quicksort(int * array, int length){
-    int buff[length] = {0};
+    int* buff = (int*)malloc (sizeof(int) * length);
     int middle;
     middle = length/2;
     int leftpointer = 0, rightpointer = middle;
@@ -43,7 +38,7 @@ int quicksort(int * array, int length){
       }else
             return 0;
 
-    while((leftpointer < middle) and (rightpointer < length)){
+    while((leftpointer < middle) && (rightpointer < length)){
         if(array[leftpointer] < array[rightpointer]){
             buff[i] = array[leftpointer];
             leftpointer++;
@@ -90,9 +85,7 @@ int main(){
     }
     printf("\nsorted\n\n");
 
-
-
-    int Arr[length] = {0,2,8,3,4,6,5,9,8,2,7,3};
+    int Arr[12] = {0,2,8,3,4,6,5,9,8,2,7,3};
     bucket_sort_evenNums(Arr,length);
     for(int i = 0; i < length; i++){
         printf("%d ",Arr[i]);
