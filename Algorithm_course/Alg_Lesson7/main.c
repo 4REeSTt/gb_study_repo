@@ -69,7 +69,26 @@ void make_list(Node* head){
     }
 }
 
+
+//3.---------------------------------------------------------------
+int check_sort(Node* head){
+    int tmp = 0;
+    while(head->next != NULL){
+        tmp = head->data;
+        head = head->next;
+        if(tmp > head->data){
+            printf("List is not sorted\n");
+            return 0;
+        }
+    }
+    printf("List is sorted\n");
+    return 1;
+}
+
+
 int main(){
+
+    printf("\n");
 
     char CharArray[] = "{2/5*{(4+7)]";
     char CharArray_right[] = "(2+(2*2))";
@@ -81,6 +100,8 @@ int main(){
     printf("(2+(2*2)): %d\n", is_brackets_rigth(CharArray_right, length_right));
 
 //2.---------------------------------------------------------------
+    printf("\n");
+
     Node* head = (Node*)malloc(sizeof(Node));
     Node* chain1 = (Node*)malloc(sizeof(Node));
     Node* chain2 = (Node*)malloc(sizeof(Node));
@@ -96,7 +117,6 @@ int main(){
     chain2->next = tail;
     tail->next = NULL;
 
-    printf("DEBUG1\n");
     printf("Original list:\t");
     print_list(head);
 
@@ -108,7 +128,10 @@ int main(){
     copy_list(head, other);
     print_list(other);
 
-
+//3.---------------------------------------------------------------
+    printf("\n");
+    check_sort(head);
+    printf("\n");
 
 return 0;
 }
