@@ -81,19 +81,30 @@ int main(){
     printf("(2+(2*2)): %d\n", is_brackets_rigth(CharArray_right, length_right));
 
 //2.---------------------------------------------------------------
-    Node* head;
-    Node* tail;
+    Node* head = (Node*)malloc(sizeof(Node));
+    Node* chain1 = (Node*)malloc(sizeof(Node));
+    Node* chain2 = (Node*)malloc(sizeof(Node));
+    Node* tail = (Node*)malloc(sizeof(Node));
 
-    make_list(head);
+    head->data = 15;
+    chain1->data = 20;
+    chain2->data = 21;
+    tail->data =100;
 
-    printf("Original list: ");
+    head->next = chain1;
+    chain1->next = chain2;
+    chain2->next = tail;
+    tail->next = NULL;
+
+    printf("DEBUG1\n");
+    printf("Original list:\t");
     print_list(head);
 
     Node* other = (Node*)malloc(sizeof(Node));
     other->data = 0;
     other->next = NULL;
 
-    printf("Copied list: ");
+    printf("Copied list:  \t");
     copy_list(head, other);
     print_list(other);
 
