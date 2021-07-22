@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int key = 6;
+int key = 5;
 char massage[100] = "Hello today iam good";
 int i = 0;
 
@@ -151,9 +151,9 @@ char* col_change_decrypt(Key_str* package){
 
     
     free(matrix_tmp2);
-    for(int i = 0; i < key; i++)
-        free(matrix2[i]);
-    free(matrix2);
+//    for(int i = 0; i < key; i++)
+//        free(matrix2[i]);
+//    free(matrix2);
 
     for(int i = size-1; i > 0; i--){
         if(string[i] == 'x')
