@@ -12,7 +12,7 @@ class Power{
         :a(3),b(4)
         {}
 
-        void SetNums(int val1, int val2){
+        void Set(int val1, int val2){
             a = val1;
             b = val2;
         }
@@ -77,13 +77,16 @@ int Stack::pop(){
         std::cout << "Array is empty\n";
         return 0;
     }
-    return array[top--];
+    int tmp = array[top];
+    array[top--] = 0;
+    return tmp;
 }
 void Stack::print(){
-    for(int i = 0; i < size; i++){
+    std::cout << "( ";
+    for(int i = 0; i < top+1; i++){
         std::cout << array[i] << " ";
     }
-    std::cout << "\n";
+    std::cout << ")\n";
 }
 
 
@@ -91,7 +94,7 @@ int main(){
 
 //1.------------------------------------------------------
     Power power;
-    power.SetNums(2,3);
+    power.Set(2,3);
     std::cout << "Tast1: "<< power.calculate() << std::endl << std::endl;
 //2.------------------------------------------------------
     std::cout << "Tast2:"  << "\n";
@@ -99,17 +102,21 @@ int main(){
     light.print();
 //3.------------------------------------------------------
     std::cout << "\nTast3:"  << "\n";
-    Stack stack1;
-    stack1.push(15);
-    stack1.push(15);
-    stack1.push(13);
-    stack1.print();
-
-    std::cout << "Pop: " << stack1.pop() << "\n";
-
-    std::cout << "Reset: " << "\n";
-    stack1.reset();
-    stack1.print();
+    Stack stack;
+    stack.reset();
+    stack.print();
+    
+    stack.push(3);
+    stack.push(7);
+    stack.push(5);
+    stack.print();
+    
+    stack.pop();
+    stack.print();
+    
+    stack.pop();
+    stack.pop();
+    stack.print();
 
     return 0;
 }
