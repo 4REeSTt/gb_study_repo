@@ -12,7 +12,7 @@ class Power{
         :a(3),b(4)
         {}
 
-        void Set(int val1, int val2){
+        void set(int val1, int val2){
             a = val1;
             b = val2;
         }
@@ -94,7 +94,7 @@ int main(){
 
 //1.------------------------------------------------------
     Power power;
-    power.Set(2,3);
+    power.set(2,3);
     std::cout << "Tast1: "<< power.calculate() << std::endl << std::endl;
 //2.------------------------------------------------------
     std::cout << "Tast2:"  << "\n";
