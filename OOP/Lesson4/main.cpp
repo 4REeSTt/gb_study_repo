@@ -163,11 +163,16 @@ void ArrayInt::print()
 
 int main()
 {
-    ArrayInt array();    
+    ArrayInt array(1);    
+    array[0] = 20;
     array.push_back(13);
     array.push_back(11);
     array.push_back(12);
     array.push_back(14);
+    array.print();
+    array.sort();
+    array.print();
+    array.pop_front();
     array.print();
 
     return 0;
