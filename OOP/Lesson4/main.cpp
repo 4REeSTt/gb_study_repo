@@ -182,13 +182,13 @@ int find_special(std::vector<int> &arr)
     return counter;
 }
 //3.--------------------------------------------------
-enum Suit{
+enum Rank{
     Ace = 1
 };
 class Card{
-    Suit suit;
+    Rank rank;
 public:
-    int GetValue(){return (int)suit;}
+    int GetValue(){return (int)rank;}
 };
 class Hand
 {
