@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #ifndef ARRAYINT_H
 #define ARRAYINT_H
 
@@ -159,7 +160,67 @@ void ArrayInt::print()
     std::cout << ")\n";
 }
 
+//2.--------------------------------------------------
 
+//Если максимальное число нам уже известно, иначе можно так же заполнять массив только уже значениями и каждый раз
+//сравнивать число из вектора с каждым которое уже записано в массив(если число уже есть пропускаем, если нет то
+//записываем в конец). После через for, если в массиве значение != 0,
+//counter++
+int find_special(std::vector<int> &arr)
+{
+    int counter = 0;
+    int arr_controll[1000]{0};
+
+    int a;
+    for(int i = 0; i < arr.size(); i++)
+        arr_controll[arr[i]]++;
+
+    for(int i = 0; i < 1000; i++)
+        if(arr_controll[i] == 1)
+            counter++;
+
+    return counter;
+}
+//3.--------------------------------------------------
+enum Suit{
+    Ace = 1
+};
+class Card{
+    Suit suit;
+public:
+    int GetValue(){return (int)suit;}
+};
+class Hand
+{
+private:
+    std::vector<Card*> collection;
+public:
+
+    void ADD(Card* card)
+    {
+        collection.push_back(card);
+    }
+
+    void Clear()
+    {
+        collection.clear();
+    }
+
+    int GiveValue()
+    {
+        bool ace_flag = 0;
+        int counter = 0;
+        for(auto value : collection)
+        {
+            if(value->GetValue() == 1)
+                ace_flag = 1;
+            counter += value->GetValue();
+        }
+        if(counter <= 10 && ace_flag)
+            counter += 10;
+        return counter;
+    }
+};
 
 int main()
 {
@@ -174,6 +235,23 @@ int main()
     array.print();
     array.pop_front();
     array.print();
+//2.--------------------------------------------------
+    std::cout << "\nTask2:\n";
+
+    std::vector<int> myvec(10);
+
+    for(int i = 0; i < 10; i++)
+        myvec[i] = i;
+
+    myvec[2] = 4;
+    myvec[5] = 3;
+
+    std::cout << "( ";
+    for(int i = 0; i < 10; i++)
+        std::cout << myvec[i] << " ";
+    std::cout << ")\n";
+    
+    std::cout << "Number of special: " << find_special(myvec) << "\n";
 
     return 0;
 }
