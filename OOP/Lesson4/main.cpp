@@ -176,7 +176,7 @@ int find_special(std::vector<int> &arr)
         arr_controll[arr[i]]++;
 
     for(int i = 0; i < 1000; i++)
-        if(arr_controll[i] == 1)
+        if(arr_controll[i] >= 1)
             counter++;
 
     return counter;
