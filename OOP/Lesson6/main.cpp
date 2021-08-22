@@ -133,7 +133,7 @@ int secured_input()
 {
     int value;
     std::cout << "Please enter the value\n> ";
-    while(!(std::cin >> value) || (std::cin.peek()) == 113)
+    while(!(std::cin >> value) || (std::cin.peek() != 10))
     {
         std::cout << "Please enter the value\n> ";
         std::cin.clear();
