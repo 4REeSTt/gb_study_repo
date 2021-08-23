@@ -1,11 +1,28 @@
-#include "Main.hpp"
+#include "include/Main.hpp"
+
+#ifdef _WIN32
+    #include <windows.h>
+
+    void sleep(unsigned milliseconds)
+    {
+        Sleep(milliseconds);
+    }
+#else
+    #include <unistd.h>
+    
+    void sleep(unsigned milliseconds)
+    {
+        usleep(milliseconds * 1000); // takes microseconds
+    }
+#endif
+
+
+
+
 
 Player::Player(std::string name, bool not_computer)
-:GenericPlayer(name)
-{
-	if(GetName() == "Linus")
-		m_NotComputer = 1;
-}
+:GenericPlayer(name, not_computer)
+{}
 
 void Player::Win() const
 {
@@ -24,8 +41,14 @@ void Player::Push() const
 
 bool Player::IsHitting() const
 {
-	if(m_NotComputer)
-		std::cout << "Do you need card? (0/No : any/Yes)\n";
+	if(IsBoosted()){
+		Bust();
+		sleep(1000);
+		return false;
+	}
+
+	if(GetHuman())
+		std::cout << "Do you need card? (Yes/No)\n";
 	else
 	{
 		return (GiveValue() < 16);

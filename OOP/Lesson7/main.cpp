@@ -1,16 +1,13 @@
-#include "Main.hpp"
+#include "include/Main.hpp"
 
-int secured_input()
+bool secured_input()
 {
-    int value;
-    std::cout << "Please enter the value\n> ";
-    while(!(std::cin >> value) || (std::cin.peek() != 10))
-    {
-        std::cout << "Please enter the value\n> ";
-        std::cin.clear();
-        std::cin.sync();
-    }
-    return value;
+	std::string answer;
+	std::cin >> answer;
+	
+	if(answer[0] == 'Y' || answer[0] == 'y' || answer[0] == '1')
+		return true;
+	return false;
 }
 
 void swapDates(Date* date1, Date* date2)

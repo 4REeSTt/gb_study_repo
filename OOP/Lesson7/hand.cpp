@@ -1,4 +1,4 @@
-#include "Hand.hpp"
+#include "include/Hand.hpp"
 
 Hand::~Hand(){}
 

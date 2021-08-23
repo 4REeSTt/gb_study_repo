@@ -1,4 +1,4 @@
-#include "Deck.hpp"
+#include "include/Deck.hpp"
 
 Deck::Deck()
 {
@@ -20,9 +20,13 @@ void Deck::Populate()
 
 void Deck::Shuffle()
 {
-    for(int i = 0; i < (rand() % 100); i++)
+	std::random_device rd;
+	std::mt19937 mt(rd());
+	std::uniform_real_distribution<double> dist(0, m_deck.size());
+	
+    for(int i = 0; i < dist(mt); i++)
         for(int j = 0; j < m_deck.size(); j++)
-            std::swap(m_deck[rand()%m_deck.size()], m_deck[rand()%m_deck.size()]); 
+            std::swap(m_deck[dist(mt)], m_deck[dist(mt)]); 
 }
 
 void Deck::Deal(Hand& aHand)
@@ -43,8 +47,10 @@ void Deck::AdditionalCards(GenericPlayer& aGenericPlayer, Game& current)
             std::cout << "Deck is empty\n";
             break;
         }
-		current.printPlayerStatment(&aGenericPlayer);
         aGenericPlayer.Add(m_deck[m_deck.size() -1]);
         m_deck.pop_back();
+		
+		if(aGenericPlayer.GetHuman())
+			current.printPlayerStatment(&aGenericPlayer);
     }
 }

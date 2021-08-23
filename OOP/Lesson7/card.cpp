@@ -1,4 +1,4 @@
-#include "Card.hpp"
+#include "include/Card.hpp"
 
 Card::Card(Rank rank, Suit suit, bool IsFliped)
 :m_rank(rank), m_suit(suit), m_IsFliped(IsFliped)

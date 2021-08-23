@@ -1,4 +1,5 @@
 #pragma once
+class Game;
 #include "Main.hpp"
 #include "Deck.hpp"
 
@@ -12,8 +13,8 @@ public:
   void printCardStatment() const;
   void printPlayerStatment(GenericPlayer* player) const;
 private:
-  Deck m_deck;
-  House* m_diler;
+  Deck* m_deck;
+  House* m_dealer;
   std::vector<Player*> m_players;
 
 };

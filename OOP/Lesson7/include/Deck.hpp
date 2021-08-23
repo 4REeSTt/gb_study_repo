@@ -1,7 +1,9 @@
 #pragma once
+#include <random>
 #include <queue>
+class Deck;
 #include "Main.hpp"
-#include "Game.hpp"
+
 
 class Deck:public Hand
 {

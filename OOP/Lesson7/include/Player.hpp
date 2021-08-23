@@ -12,7 +12,7 @@ public:
   void Win()  const;
   void Lose() const;
   void Push() const;
+  
 private:
-  bool m_NotComputer = 0;
 
 };
