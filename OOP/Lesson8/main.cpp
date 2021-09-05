@@ -33,20 +33,50 @@ private:
 //3.-----------------------------------------------------
 class IlligalCommand{
 public:
+    IlligalCommand(int curr_x, int curr_y, int direct_x, int direct_y)
+    :m_curr_x(curr_x), m_curr_y(curr_y), m_direct_x(direct_x), m_direct_y(direct_y)
+    {}
+
+    int GetCurX(){ return m_curr_x; }
+    int GetDirX(){ return m_direct_x; }
+    int GetCurY(){ return m_curr_y; }
+    int GetDirY(){ return m_direct_y; }
 private:
+    int m_curr_x;
+    int m_curr_y;
+    int m_direct_x;
+    int m_direct_y;
 };
 class OffTheField{
 public:
-prtivate:
+    OffTheField(int curr_x, int curr_y, int direct_x, int direct_y)
+    :m_curr_x(curr_x), m_curr_y(curr_y), m_direct_x(direct_x), m_direct_y(direct_y)
+    {}
+    int GetCurX(){ return m_curr_x; }
+    int GetDirX(){ return m_direct_x; }
+    int GetCurY(){ return m_curr_y; }
+    int GetDirY(){ return m_direct_y; }
+private:
+    int m_curr_x;
+    int m_curr_y;
+    int m_direct_x;
+    int m_direct_y;
 };
 class Robot{
 public:
-    void move(){}
+    void move(int x, int y){
+        if(x < -1 || x > 1 || y < -1 || y > 1)
+            throw IlligalCommand(m_x, m_y, x, y);
+        if((x + m_x) < 0 || (x + m_x) > 9 || (y + m_y) < 0 || (y + m_y) > 9)
+            throw OffTheField(m_x, m_y, x, y);
+        m_x += x;
+        m_y += y;
+    }
+    int GetX(){ return m_x; }
+    int GetY(){ return m_y; }
 private:
-    uint8_t m_x;
-    uint8_t m_y;
-    int8_t m_direction;
-
+    int m_x = 0;
+    int m_y = 0;
 };
 
 int main(){
@@ -63,6 +93,7 @@ int main(){
 //2.-----------------------------------------------------
     double n = -1;
     Bar bar;
+    std::cout << "Task2:  Enter number(0 to exit)\n> ";
     while(n){
         std::cin >> n;
         try{
@@ -73,5 +104,36 @@ int main(){
         }
     }
 //3.-----------------------------------------------------
+    int dirX;
+    int dirY;
+    Robot robot;
+
+    while(true){
+        std::cout << "Enter X\n> ";
+        std::cin >> dirX;
+        std::cout << "Enter Y\n> ";
+        std::cin >> dirY;
+        std::system("clear");
+        try{
+           robot.move(dirX, dirY); 
+        }
+        catch(IlligalCommand illig){ 
+            std::cout << "ERROR: Illigal comand\n" << "Robot can move only 1 block forward or backward\n" << "Direction for X = " << illig.GetDirX() << "\nDirection for Y = " << illig.GetDirY() << std::endl; 
+        }
+        catch(OffTheField off){
+            std::cout << "ERROR: Robot can't go off the field\n" << "Current position (" << off.GetCurX() << ", " << off.GetCurY() << ")\n" << "Direction for X = " << off.GetDirX()<< "\nDirection for Y = " << off.GetDirY() << std::endl; 
+        }
+        
+        for(int x = 0; x < 10; x++){
+            for(int y = 0; y < 10; y++){
+                if(x == robot.GetX() && y == robot.GetY())
+                    std::cout << " R ";
+                else
+                    std::cout << " . ";
+            }
+            std::cout << '\n';
+        }
+        std::cout << "\n\n";
+    }
     return 0;
 }
