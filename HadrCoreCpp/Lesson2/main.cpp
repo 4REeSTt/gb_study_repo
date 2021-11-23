@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include <algorithm>
 
 template <class T>
@@ -19,24 +20,28 @@ void SortPointers(std::vector<T*> vec){
 }
 
 
-std::string letters = {"аАяЯоОёЁеЕэЭиИуУыЫюЮ1"};
+std::string letters = {"aeiouyAEIOUY"};
 
 size_t CalcLetters(std::string word){
+
+    std::ifstream in("test.txt");
+    in.seekg(0);
+
     size_t count = 0;
-    count = std::count_if(word.begin(), word.end(), [&count](char character){
-        if(std::find(letters.begin(), letters.end(), character) == letters.end()){
-            std::cout << character << "\t";
-            return true;
+    if(!in.eof()){
+        for(char a = in.get(); !in.eof();){
+            for(int i = 0; i < letters.size() && !in.eof(); i++, a = in.get()){
+                if( letters[i] == a) count++;
+                continue;
+            }
         }
-        return false;
-    });
+    }
     return count;
 }
 
 
 
 int main(){
-    setlocale(LC_ALL, "Russian");
 
     std::string str{"Война и мир"};
     std::cout << CalcLetters(str) << "\n";
