@@ -24,15 +24,15 @@ std::string letters = {"aeiouyAEIOUY"};
 
 size_t CalcLetters(std::string word){
 
-    std::ifstream in("test.txt");
+    std::ifstream in("war.txt");
     in.seekg(0);
 
     size_t count = 0;
     if(!in.eof()){
-        for(char a = in.get(); !in.eof();){
-            for(int i = 0; i < letters.size() && !in.eof(); i++, a = in.get()){
+        for(char a; !in.eof();){
+                a = in.get();
+            for(int i = 0; i < letters.size() && !in.eof(); i++){
                 if( letters[i] == a) count++;
-                continue;
             }
         }
     }
@@ -42,9 +42,7 @@ size_t CalcLetters(std::string word){
 
 
 int main(){
-
-    std::string str{"Война и мир"};
-    std::cout << CalcLetters(str) << "\n";
+    std::cout << CalcLetters(letters) << "\n";
 
 
     return 0;
