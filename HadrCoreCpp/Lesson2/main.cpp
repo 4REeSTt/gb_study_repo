@@ -22,7 +22,7 @@ void SortPointers(std::vector<T*> vec){
 
 std::string letters = {"aeiouyAEIOUY"};
 
-size_t CalcLetters(std::string word){
+size_t CalcLetters(std::string letters){
 
     std::ifstream in("war.txt");
     in.seekg(0);
