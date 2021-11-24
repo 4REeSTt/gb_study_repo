@@ -29,7 +29,7 @@ size_t CalcLetters(std::string letters){
 
     size_t count = 0;
         for(char a; !in.eof();){
-                a = in.get();
+            a = in.get();
             for(int i = 0; i < letters.size(); i++)
                 if( letters[i] == a) count++;
         }
