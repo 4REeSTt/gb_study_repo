@@ -59,14 +59,17 @@ public:
 	
 	int CalcDef(int** Matrix, size_t size){
 		int def = 0;
+		int **tmp;
 		if(size == 1){ 
 			int x = Matrix[0][0];
 			return Matrix[0][0]; 
 		}
 		
 		for(int col = 0; col < size; col++){		
-			def += Matrix[col][0] * pow(-1, 2 + col) * CalcDef(MinorCall(Matrix, size, col), size -1);
-
+			def += Matrix[col][0] * pow(-1, 2 + col) * CalcDef(tmp = MinorCall(Matrix, size, col), size -1);
+			for(int i = 0; i < size -1; i++){
+				delete[] tmp[i];
+			}delete[] tmp;
 		}
 			
 		return def;
@@ -92,7 +95,7 @@ int main(){
 		std::cout << elem << "\n";
 	}
 */
-const size_t SIZE = 7;
+const size_t SIZE = 11;
 
 int** Mat;
 Mat = new int*[SIZE];
@@ -103,7 +106,7 @@ for(int i = 0; i < SIZE; i++){
 
 for(int i = 0; i < SIZE; i++){
 	for(int j = 0; j < SIZE; j++){
-		Mat[i][j] = rand()%10 + 1;
+		Mat[i][j] = rand()%9 + 1;
 	}
 }
 	
@@ -114,10 +117,10 @@ PrintMatrix(Mat, SIZE);
 std::cout << matrix.CalcDef(matrix.GetMatrix(), matrix.GetSize()) << "\n";
 
 
-delete Mat[0];
-delete Mat[0];
-delete Mat[0];
-delete Mat;
+delete[] Mat[0];
+delete[] Mat[0];
+delete[] Mat[0];
+delete[] Mat;
 
     return 0;
 }
