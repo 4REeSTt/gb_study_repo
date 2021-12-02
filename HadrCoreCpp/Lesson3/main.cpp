@@ -54,7 +54,6 @@ public:
 			}
 			colInNewMatrix++;
 		}
-		PrintMatrix(newMatrix, size -1);
 		return newMatrix;
 	}
 	
@@ -64,13 +63,12 @@ public:
 			int x = Matrix[0][0];
 			return Matrix[0][0]; 
 		}
-		std::cout << "---------------------------------------------------------\n";
 		
-		for(int col = 0; col < size; col++)
-			def += Matrix[0][col] * pow(-1, 2 + col) * CalcDef(MinorCall(Matrix, size, col), size -1);
+		for(int col = 0; col < size; col++){		
+			def += Matrix[col][0] * pow(-1, 2 + col) * CalcDef(MinorCall(Matrix, size, col), size -1);
+
+		}
 			
-		int a = def;
-		std::cout << "---------------------------------------------------------\n";
 		return def;
 	}
 	
@@ -94,24 +92,25 @@ int main(){
 		std::cout << elem << "\n";
 	}
 */
+const size_t SIZE = 7;
 
 int** Mat;
-Mat = new int*[3];
-Mat[0] = new int[3];
-Mat[1] = new int[3];
-Mat[2] = new int[3];
+Mat = new int*[SIZE];
 
-for(int i = 0; i < 3; i++){
-	for(int j = 0; j < 3; j++){
-		Mat[i][j] = (i+1)*(j+1);
+for(int i = 0; i < SIZE; i++){
+	Mat[i] = new int[SIZE];
+}
+
+for(int i = 0; i < SIZE; i++){
+	for(int j = 0; j < SIZE; j++){
+		Mat[i][j] = rand()%10 + 1;
 	}
 }
-//Mat[0][0] += 1;
-PrintMatrix(Mat, 3);
 	
-Matrix matrix(Mat, 3);
-PrintMatrix(matrix.GetMatrix(), matrix.GetSize());
 
+	
+Matrix matrix(Mat, SIZE);
+PrintMatrix(Mat, SIZE);
 std::cout << matrix.CalcDef(matrix.GetMatrix(), matrix.GetSize()) << "\n";
 
 
